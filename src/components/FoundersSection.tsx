@@ -1,0 +1,69 @@
+import { motion } from "framer-motion";
+import { Linkedin, Twitter } from "lucide-react";
+
+const founders = [
+  {
+    name: "Ashish Raj",
+    role: "Founder",
+    desc: "Visionary leader passionate about empowering student entrepreneurs to build and scale real startups.",
+  },
+  {
+    name: "Paras Wadkar",
+    role: "Co-Founder",
+    desc: "Strategic thinker driving platform growth, partnerships, and community engagement.",
+  },
+  {
+    name: "Abhishek Gupta",
+    role: "Co-Founder",
+    desc: "Tech-first builder focused on creating seamless experiences for the next generation of founders.",
+  },
+];
+
+const FoundersSection = () => (
+  <section id="founders" className="py-24 relative">
+    <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+          Meet the <span className="text-gradient-gold">Founders</span>
+        </h2>
+        <p className="text-muted-foreground text-lg">The team behind The Ascent Hive</p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {founders.map((f, i) => (
+          <motion.div
+            key={f.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.15 }}
+            whileHover={{ y: -5 }}
+            className="gradient-card rounded-2xl p-8 border-glow text-center transition-all duration-300"
+          >
+            <div className="w-20 h-20 rounded-full gradient-gold mx-auto mb-5 flex items-center justify-center text-2xl font-bold text-primary-foreground">
+              {f.name.split(" ").map((n) => n[0]).join("")}
+            </div>
+            <h3 className="font-heading text-xl font-bold mb-1">{f.name}</h3>
+            <span className="text-primary text-sm font-semibold">{f.role}</span>
+            <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{f.desc}</p>
+            <div className="flex justify-center gap-3 mt-4">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin size={18} />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Twitter size={18} />
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default FoundersSection;
