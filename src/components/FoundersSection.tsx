@@ -42,23 +42,38 @@ const FoundersSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            whileHover={{ y: -5 }}
-            className="gradient-card rounded-2xl p-8 border-glow text-center transition-all duration-300"
+            whileHover={{ y: -8 }}
+            className="gradient-card rounded-2xl p-8 border-glow text-center transition-all duration-300 group overflow-hidden"
           >
-            <div className="w-20 h-20 rounded-full gradient-gold mx-auto mb-5 flex items-center justify-center text-2xl font-bold text-primary-foreground">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="w-20 h-20 rounded-full gradient-gold mx-auto mb-5 flex items-center justify-center text-2xl font-bold text-primary-foreground transition-transform"
+            >
               {f.name.split(" ").map((n) => n[0]).join("")}
-            </div>
+            </motion.div>
             <h3 className="font-heading text-xl font-bold mb-1">{f.name}</h3>
             <span className="text-primary text-sm font-semibold">{f.role}</span>
             <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{f.desc}</p>
-            <div className="flex justify-center gap-3 mt-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin size={18} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter size={18} />
-              </a>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="flex justify-center gap-3 mt-5"
+            >
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.2, y: -2 }}
+                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+              >
+                <Linkedin size={14} />
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.2, y: -2 }}
+                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+              >
+                <Twitter size={14} />
+              </motion.a>
+            </motion.div>
           </motion.div>
         ))}
       </div>

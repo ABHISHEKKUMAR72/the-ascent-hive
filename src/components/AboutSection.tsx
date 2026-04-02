@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Lightbulb, Target } from "lucide-react";
+import { Users, Lightbulb, Target, Building2, GraduationCap, Globe } from "lucide-react";
 
 const cards = [
   {
@@ -17,6 +17,13 @@ const cards = [
     title: "Launch",
     desc: "Go beyond classroom projects. Ship real products, acquire users, and build your startup portfolio.",
   },
+];
+
+const trustedBy = [
+  { icon: Building2, name: "TechCorp" },
+  { icon: GraduationCap, name: "EduVentures" },
+  { icon: Globe, name: "GlobalHub" },
+  { icon: Users, name: "StartupNet" },
 ];
 
 const AboutSection = () => (
@@ -44,10 +51,10 @@ const AboutSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            whileHover={{ y: -5 }}
-            className="gradient-card rounded-2xl p-8 border-glow transition-all duration-300"
+            whileHover={{ y: -8, scale: 1.02 }}
+            className="gradient-card rounded-2xl p-8 border-glow transition-all duration-300 group"
           >
-            <div className="w-12 h-12 rounded-xl gradient-gold flex items-center justify-center mb-5">
+            <div className="w-12 h-12 rounded-xl gradient-gold flex items-center justify-center mb-5 group-hover:shadow-lg group-hover:shadow-primary/20 transition-shadow">
               <card.icon size={24} className="text-primary-foreground" />
             </div>
             <h3 className="font-heading text-xl font-bold mb-3">{card.title}</h3>
@@ -55,6 +62,25 @@ const AboutSection = () => (
           </motion.div>
         ))}
       </div>
+
+      {/* Trusted by strip */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3 }}
+        className="mt-20 text-center"
+      >
+        <p className="text-muted-foreground text-sm uppercase tracking-widest mb-6">Trusted by forward-thinking organizations</p>
+        <div className="flex flex-wrap items-center justify-center gap-10">
+          {trustedBy.map((org) => (
+            <div key={org.name} className="flex items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+              <org.icon size={20} />
+              <span className="font-heading font-semibold text-sm">{org.name}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   </section>
 );

@@ -1,13 +1,25 @@
 import { motion } from "framer-motion";
-import { Mail, Send } from "lucide-react";
+import { Mail, Send, Copy, Check } from "lucide-react";
 import { useState } from "react";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [copied, setCopied] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("hello@ascenthive.in");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = `mailto:hello@ascenthive.in?subject=Contact from ${form.name}&body=${form.message}`;
+    setSending(true);
+    setTimeout(() => {
+      window.location.href = `mailto:hello@ascenthive.in?subject=Contact from ${form.name}&body=${form.message}`;
+      setSending(false);
+    }, 800);
   };
 
   return (
@@ -24,9 +36,16 @@ const ContactSection = () => {
           </h2>
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Mail size={18} className="text-primary" />
-            <a href="mailto:hello@ascenthive.in" className="hover:text-primary transition-colors">
-              hello@ascenthive.in
-            </a>
+            <span>hello@ascenthive.in</span>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={copyEmail}
+              className="ml-1 p-1 rounded hover:bg-secondary transition-colors"
+              title="Copy email"
+            >
+              {copied ? <Check size={14} className="text-primary" /> : <Copy size={14} />}
+            </motion.button>
           </div>
         </motion.div>
 
@@ -43,7 +62,7 @@ const ContactSection = () => {
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+            className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
           />
           <input
             type="email"
@@ -51,7 +70,7 @@ const ContactSection = () => {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+            className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
           />
           <textarea
             placeholder="Your Message"
@@ -59,15 +78,24 @@ const ContactSection = () => {
             rows={4}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
-            className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+            className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all resize-none"
           />
           <motion.button
             type="submit"
+            disabled={sending}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full gradient-gold text-primary-foreground py-3 rounded-xl font-bold glow-button flex items-center justify-center gap-2"
+            className="w-full gradient-gold text-primary-foreground py-3 rounded-xl font-bold glow-button flex items-center justify-center gap-2 disabled:opacity-70"
           >
-            Send Message <Send size={18} />
+            {sending ? (
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
+              />
+            ) : (
+              <>Send Message <Send size={18} /></>
+            )}
           </motion.button>
         </motion.form>
       </div>

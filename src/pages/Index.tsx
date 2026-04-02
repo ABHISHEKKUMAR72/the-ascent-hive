@@ -10,7 +10,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="min-h-screen">
+  <div className="min-h-screen bg-grid-pattern relative">
     <Navbar />
     <HeroSection />
     <AboutSection />

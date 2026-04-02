@@ -6,10 +6,10 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
+    --background: 0 0% 4%;
     --foreground: 45 10% 90%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 7%;
     --card-foreground: 45 10% 90%;
 
     --popover: 0 0% 8%;
@@ -18,7 +18,7 @@
     --primary: 48 96% 53%;
     --primary-foreground: 0 0% 5%;
 
-    --secondary: 0 0% 12%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 45 10% 90%;
 
     --muted: 0 0% 15%;
@@ -30,8 +30,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
     --ring: 48 96% 53%;
 
     --radius: 0.75rem;
@@ -48,8 +48,8 @@
     --glow-primary: 0 0 20px hsl(48 96% 53% / 0.3);
     --glow-primary-intense: 0 0 40px hsl(48 96% 53% / 0.5), 0 0 80px hsl(48 96% 53% / 0.2);
     --gradient-gold: linear-gradient(135deg, hsl(48 96% 53%), hsl(30 100% 48%));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%), hsl(0 0% 8%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 6%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 7%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 9%), hsl(0 0% 5%));
   }
 }
 
@@ -60,17 +60,22 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @layer utilities {
   .glow-button {
     box-shadow: var(--glow-primary);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
   }
   .glow-button:hover {
     box-shadow: var(--glow-primary-intense);
@@ -88,9 +93,34 @@
     background-clip: text;
   }
   .border-glow {
-    border: 1px solid hsl(48 96% 53% / 0.2);
+    border: 1px solid hsl(48 96% 53% / 0.15);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
   .border-glow:hover {
-    border-color: hsl(48 96% 53% / 0.5);
+    border-color: hsl(48 96% 53% / 0.4);
+    box-shadow: 0 0 20px hsl(48 96% 53% / 0.08);
+  }
+  .glass-card {
+    background: hsl(0 0% 8% / 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(hsl(0 0% 100% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .bg-noise {
+    position: relative;
+  }
+  .bg-noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
   }
 }

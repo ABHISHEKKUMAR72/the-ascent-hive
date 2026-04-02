@@ -31,12 +31,16 @@ const HowItWorksSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            className="relative text-center"
+            whileHover={{ y: -6 }}
+            className="relative text-center group"
           >
             <div className="relative inline-block mb-6">
-              <div className="w-16 h-16 rounded-2xl gradient-gold flex items-center justify-center mx-auto">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-16 h-16 rounded-2xl gradient-gold flex items-center justify-center mx-auto group-hover:shadow-lg group-hover:shadow-primary/30 transition-shadow"
+              >
                 <step.icon size={28} className="text-primary-foreground" />
-              </div>
+              </motion.div>
               <span className="absolute -top-2 -right-2 w-7 h-7 bg-background border-2 border-primary rounded-full flex items-center justify-center text-xs font-bold text-primary">
                 {i + 1}
               </span>

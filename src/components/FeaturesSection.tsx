@@ -31,10 +31,10 @@ const FeaturesSection = () => (
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            whileHover={{ scale: 1.02 }}
-            className="gradient-card rounded-2xl p-6 border-glow flex gap-5 items-start transition-all duration-300"
+            whileHover={{ scale: 1.03, y: -4 }}
+            className="gradient-card rounded-2xl p-6 border-glow flex gap-5 items-start transition-all duration-300 group"
           >
-            <div className="w-12 h-12 rounded-xl gradient-gold flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 rounded-xl gradient-gold flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-primary/20 transition-shadow">
               <f.icon size={22} className="text-primary-foreground" />
             </div>
             <div>
