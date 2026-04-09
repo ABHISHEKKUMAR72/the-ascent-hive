@@ -8,7 +8,7 @@ const ContactSection = () => {
   const [sending, setSending] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("hello@ascenthive.in");
+    navigator.clipboard.writeText("");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -17,7 +17,7 @@ const ContactSection = () => {
     e.preventDefault();
     setSending(true);
     setTimeout(() => {
-      window.location.href = `mailto:hello@ascenthive.in?subject=Contact from ${form.name}&body=${form.message}`;
+      window.location.href = `mailto:admin@ascenthive.in?subject=Contact from ${form.name}&body=${form.message}`;
       setSending(false);
     }, 800);
   };
@@ -36,7 +36,7 @@ const ContactSection = () => {
           </h2>
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <Mail size={18} className="text-primary" />
-            <span>hello@ascenthive.in</span>
+            <span>admin@ascenthive.in</span>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

@@ -1,21 +1,24 @@
 import { motion } from "framer-motion";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const founders = [
   {
     name: "Ashish Raj",
     role: "Founder",
     desc: "Visionary leader passionate about empowering student entrepreneurs to build and scale real startups.",
+    linkedin: "https://www.linkedin.com/in/ashish-raj-504760319/",
   },
   {
     name: "Paras Wadkar",
     role: "Co-Founder",
     desc: "Strategic thinker driving platform growth, partnerships, and community engagement.",
+    linkedin: "https://www.linkedin.com/in/paras-wadkar-0772b3397/",
   },
   {
     name: "Abhishek Gupta",
     role: "Co-Founder",
     desc: "Tech-first builder focused on creating seamless experiences for the next generation of founders.",
+    linkedin: "https://www.linkedin.com/in/abhishek-kumar-72o77/",
   },
 ];
 
@@ -60,18 +63,13 @@ const FoundersSection = () => (
               className="flex justify-center gap-3 mt-5"
             >
               <motion.a
-                href="#"
+                href={f.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -2 }}
                 className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
               >
                 <Linkedin size={14} />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.2, y: -2 }}
-                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
-              >
-                <Twitter size={14} />
               </motion.a>
             </motion.div>
           </motion.div>
