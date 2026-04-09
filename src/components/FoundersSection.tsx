@@ -6,16 +6,22 @@ const founders = [
     name: "Ashish Raj",
     role: "Founder",
     desc: "Visionary leader passionate about empowering student entrepreneurs to build and scale real startups.",
+    linkedin: "https://www.linkedin.com/in/ashishraj-ascenthive/",
+    twitter: "#",
   },
   {
     name: "Paras Wadkar",
     role: "Co-Founder",
     desc: "Strategic thinker driving platform growth, partnerships, and community engagement.",
+    linkedin: "https://www.linkedin.com/in/paraswadkar/",
+    twitter: "#",
   },
   {
-    name: "Abhishek Gupta",
+    name: "Abhishek Kumar",
     role: "Co-Founder",
     desc: "Tech-first builder focused on creating seamless experiences for the next generation of founders.",
+    linkedin: "https://www.linkedin.com/in/abhishek-kumar-72o77/",
+    twitter: "#",
   },
 ];
 
@@ -60,14 +66,18 @@ const FoundersSection = () => (
               className="flex justify-center gap-3 mt-5"
             >
               <motion.a
-                href="#"
+                href={f.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -2 }}
                 className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
               >
                 <Linkedin size={14} />
               </motion.a>
               <motion.a
-                href="#"
+                href={f.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -2 }}
                 className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
               >
