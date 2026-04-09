@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
@@ -20,15 +20,22 @@ const Footer = () => (
             <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
           </div>
           <div className="flex gap-3">
-            {[Twitter, Linkedin, Instagram, Github].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
-              >
-                <Icon size={14} />
-              </a>
-            ))}
+            <a
+              href="https://www.linkedin.com/company/113383915/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+            >
+              <Linkedin size={14} />
+            </a>
+            <a
+              href="https://www.instagram.com/ascenthive.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+            >
+              <Instagram size={14} />
+            </a>
           </div>
         </div>
       </div>
