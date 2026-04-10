@@ -18,6 +18,16 @@ const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: 
   }
 };
 
+import { Linkedin, Twitter, Instagram, Github } from "lucide-react";
+import logo from "@/assets/logo.png";
+
+const socialLinks = [
+  { Icon: Twitter, href: "https://twitter.com/ascenthive" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/company/ascenthive/" },
+  { Icon: Instagram, href: "https://www.instagram.com/ascenthive/" },
+  { Icon: Github, href: "https://github.com/ascenthive" },
+];
+
 const Footer = () => (
   <footer className="border-t border-border py-12">
     <div className="container mx-auto px-4">
@@ -37,6 +47,20 @@ const Footer = () => (
                 href={link.href}
                 onClick={(event) => scrollToSection(event, link.href.slice(1))}
                 className="hover:text-primary transition-colors"
+            <a href="#about" className="hover:text-primary transition-colors">About</a>
+            <a href="#features" className="hover:text-primary transition-colors">Features</a>
+            <a href="#founders" className="hover:text-primary transition-colors">Founders</a>
+            <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
+            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+          </div>
+          <div className="flex gap-3">
+            {socialLinks.map(({ Icon, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
               >
                 {link.label}
               </a>

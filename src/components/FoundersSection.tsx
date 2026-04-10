@@ -7,6 +7,8 @@ const founders = [
     role: "Founder",
     desc: "Visionary leader passionate about empowering student entrepreneurs to build and scale real startups.",
     linkedin: "https://www.linkedin.com/in/ashish-raj-504760319/",
+    
+    twitter: "#",
   },
   {
     name: "Paras Wadkar",
@@ -15,10 +17,11 @@ const founders = [
     linkedin: "https://www.linkedin.com/in/paras-wadkar-0772b3397/",
   },
   {
-    name: "Abhishek Gupta",
+    name: "Abhishek Kumar",
     role: "Co-Founder",
     desc: "Tech-first builder focused on creating seamless experiences for the next generation of founders.",
     linkedin: "https://www.linkedin.com/in/abhishek-kumar-72o77/",
+    twitter: "#",
   },
 ];
 
