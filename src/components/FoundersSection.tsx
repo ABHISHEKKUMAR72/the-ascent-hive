@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
+import ashishImage from "@/assets/founders/Ashish.jpeg";
+import parasImage from "@/assets/founders/Paras.jpeg";
+import abhishekImage from "@/assets/founders/Abhishekh.jpeg";
 
 const XIcon = ({ size = 14 }: { size?: number }) => (
   <svg
@@ -20,6 +23,7 @@ const founders = [
     desc: "Visionary leader passionate about empowering student entrepreneurs to build and scale real startups.",
     linkedin: "https://www.linkedin.com/in/ashish-raj-504760319/",
     x: "https://x.com/AshishRaj1909",
+    image: ashishImage,
   },
   {
     name: "Paras Wadkar",
@@ -27,6 +31,7 @@ const founders = [
     desc: "Strategic thinker driving platform growth, partnerships, and community engagement.",
     linkedin: "https://www.linkedin.com/in/paras-wadkar-0772b3397/",
     x: "https://x.com/ParasWadkar7",
+    image: parasImage,
   },
   {
     name: "Abhishek Gupta",
@@ -34,6 +39,7 @@ const founders = [
     desc: "Tech-first builder focused on creating seamless experiences for the next generation of founders.",
     linkedin: "https://www.linkedin.com/in/abhishek-kumar-72o77/",
     x: "https://x.com/Abhishekgupt_a7",
+    image: abhishekImage,
   },
 ];
 
@@ -65,9 +71,14 @@ const FoundersSection = () => (
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
-              className="w-20 h-20 rounded-full gradient-gold mx-auto mb-5 flex items-center justify-center text-2xl font-bold text-primary-foreground transition-transform"
+              className="w-20 h-20 rounded-full mx-auto mb-5 overflow-hidden ring-2 ring-primary/30 transition-transform"
             >
-              {f.name.split(" ").map((n) => n[0]).join("")}
+              <img
+                src={f.image}
+                alt={f.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </motion.div>
             <h3 className="font-heading text-xl font-bold mb-1">{f.name}</h3>
             <span className="text-primary text-sm font-semibold">{f.role}</span>
