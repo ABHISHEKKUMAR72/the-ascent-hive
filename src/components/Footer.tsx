@@ -1,6 +1,18 @@
 import { Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 
+const XIcon = ({ size = 14 }: { size?: number }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M18.244 2h3.308l-7.227 8.26L22.824 22h-6.65l-5.214-6.817L4.99 22H1.68l7.73-8.835L1.254 2h6.819l4.713 6.231L18.244 2Zm-1.161 18h1.833L7.062 3.896H5.095L17.083 20Z" />
+  </svg>
+);
+
 const footerLinks = [
   { label: "About", href: "#about" },
   { label: "Features", href: "#features" },
@@ -66,6 +78,14 @@ const Footer = () => (
               className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
             >
               <Instagram size={14} />
+            </a>
+            <a
+              href="https://x.com/ascenthive"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+            >
+              <XIcon size={14} />
             </a>
             <a
               href="https://chat.whatsapp.com/H9CO4mBUX60BshnvP2U9gI"
