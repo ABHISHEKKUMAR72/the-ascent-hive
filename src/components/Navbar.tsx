@@ -47,12 +47,12 @@ const Navbar = () => {
             </a>
           ))}
           <motion.a
-            href="#apply"
+            href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="gradient-gold text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold glow-button"
+            className="border border-yellow-500/40 bg-yellow-500/10 text-yellow-400 px-5 py-2 rounded-lg text-sm font-semibold"
           >
-            Apply Now
+            Get Notified
           </motion.a>
         </div>
 
@@ -80,11 +80,11 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#apply"
+              href="#contact"
               onClick={() => setOpen(false)}
-              className="block mt-2 gradient-gold text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold text-center glow-button"
+              className="block mt-2 border border-yellow-500/40 bg-yellow-500/10 text-yellow-400 px-5 py-2 rounded-lg text-sm font-semibold text-center"
             >
-              Apply Now
+              Get Notified
             </a>
           </motion.div>
         )}

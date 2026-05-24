@@ -49,7 +49,7 @@ const ContactSection = () => {
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
             Get In <span className="text-gradient-gold">Touch</span>
           </h2>
-          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+          <div className="flex items-center justify-center gap-2 text-muted-foreground mb-3">
             <Mail size={18} className="text-primary" />
             <span>team@ascenthive.in</span>
             <motion.button
@@ -62,6 +62,9 @@ const ContactSection = () => {
               {copied ? <Check size={14} className="text-primary" /> : <Copy size={14} />}
             </motion.button>
           </div>
+          <p className="text-muted-foreground text-sm mt-3 max-w-md mx-auto leading-relaxed">
+            Applications are currently closed. Drop us a message below and we'll notify you as soon as we open again.
+          </p>
         </motion.div>
 
         {success ? (
@@ -105,7 +108,7 @@ const ContactSection = () => {
               className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
             />
             <textarea
-              placeholder="Your Message"
+              placeholder="Hey, I'm interested in joining AscentHive — let me know when applications open!"
               required
               rows={4}
               value={form.message}
@@ -126,7 +129,7 @@ const ContactSection = () => {
                   className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
                 />
               ) : (
-                <>Send Message <Send size={18} /></>
+                <>Notify Me <Send size={18} /></>
               )}
             </motion.button>
           </motion.form>

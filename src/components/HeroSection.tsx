@@ -29,10 +29,10 @@ const HeroSection = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring" }}
-            className="inline-flex items-center gap-2 gradient-gold text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold mb-8"
+            className="inline-flex items-center gap-2 border border-yellow-500/40 bg-yellow-500/10 text-yellow-400 px-4 py-2 rounded-full text-sm font-semibold mb-8"
           >
             <Rocket size={16} />
-            Now accepting applications
+            Applications currently closed
           </motion.div>
 
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
@@ -75,14 +75,16 @@ const HeroSection = () => {
             transition={{ delay: 1.1 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.a
-              href="#apply"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="gradient-gold text-primary-foreground px-8 py-4 rounded-xl text-lg font-bold glow-button inline-flex items-center justify-center gap-2"
-            >
-              Start Building <ArrowRight size={20} />
-            </motion.a>
+            <div className="text-center py-6 px-6 border border-yellow-500/30 rounded-xl bg-yellow-500/5 max-w-xl mx-auto">
+              <p className="text-yellow-400 font-semibold text-lg">Applications Closed</p>
+              <p className="text-gray-400 mt-2 text-sm leading-relaxed">
+                We're currently working with our existing cohort.{" "}
+                <a href="#contact" className="text-yellow-400 underline underline-offset-2">
+                  Get In Touch
+                </a>{" "}
+                to express interest and we'll reach out when we open again.
+              </p>
+            </div>
             <motion.a
               href="#about"
               whileHover={{ scale: 1.05 }}
